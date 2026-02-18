@@ -1,0 +1,10 @@
+[package]
+name = "ocean"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ggez = "0.9.3"
+rand = "0.10.0"
+rust-i18n = "3.1.5"
+sys-locale = "0.3.2"
