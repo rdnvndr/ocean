@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 18.0.84, 2026-02-24T08:42:23. -->
+<!-- Written by QtCreator 19.0.0, 2026-03-15T16:15:34. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -67,6 +67,10 @@
     <valuelist type="QVariantList" key="ClangTools.SuppressedDiagnostics"/>
     <value type="bool" key="ClangTools.UseGlobalSettings">true</value>
    </valuemap>
+   <valuemap type="QVariantMap" key="CppEditor.QuickFix">
+    <value type="bool" key="UseGlobalSettings">true</value>
+   </valuemap>
+   <valuelist type="QVariantList" key="LanguageClient.EnabledSettings"/>
    <value type="int" key="RcSync">0</value>
   </valuemap>
  </data>
@@ -138,7 +142,7 @@
     <value type="qlonglong" key="ProjectExplorer.Target.DeployConfigurationCount">1</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.0">
      <valuelist type="QVariantList" key="CustomOutputParsers"/>
-     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+     <value type="int" key="PE.EnvironmentAspect.Base">-1</value>
      <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
      <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">cargo run</value>
@@ -227,7 +231,7 @@
     <value type="qlonglong" key="ProjectExplorer.Target.DeployConfigurationCount">1</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.0">
      <valuelist type="QVariantList" key="CustomOutputParsers"/>
-     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+     <value type="int" key="PE.EnvironmentAspect.Base">-1</value>
      <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
      <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">cargo run</value>
@@ -245,11 +249,10 @@
     <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.2">
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/andrey/projects/builds/%{JS: Util.asciify(&quot;%{Project:Name}-%{Kit:FileSystemName}-%{BuildConfig:Name}&quot;)}</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
-      <value type="QString" key="ProjectExplorer.ProcessStep.Arguments">build -q --message-format short</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.Arguments">build --message-format short</value>
       <value type="QString" key="ProjectExplorer.ProcessStep.Command">cargo</value>
       <value type="QString" key="ProjectExplorer.ProcessStep.WorkingDirectory">%{ActiveProject:ProjectDirectory}</value>
       <value type="QString" key="ProjectExplorer.ProcessStep.WorkingDirectoryRelativeBasePath">/home/andrey/projects/local/ocean</value>
@@ -265,7 +268,7 @@
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
       <value type="QString" key="ProjectExplorer.ProcessStep.Arguments">clean</value>
       <value type="QString" key="ProjectExplorer.ProcessStep.Command">cargo</value>
-      <value type="QString" key="ProjectExplorer.ProcessStep.WorkingDirectory">%{buildDir}</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.WorkingDirectory">%{ActiveProject:ProjectDirectory}</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.ProcessStep</value>
      </valuemap>
      <value type="qlonglong" key="ProjectExplorer.BuildStepList.StepsCount">1</value>
@@ -275,14 +278,12 @@
     </valuemap>
     <value type="int" key="ProjectExplorer.BuildConfiguration.BuildStepListCount">2</value>
     <value type="bool" key="ProjectExplorer.BuildConfiguration.ClearSystemEnvironment">false</value>
-    <valuelist type="QVariantList" key="ProjectExplorer.BuildConfiguration.CustomParsers">
-     <value type="QString">{0a745d7d-ef13-4a27-a593-b5cad7a16f01}</value>
-    </valuelist>
+    <valuelist type="QVariantList" key="ProjectExplorer.BuildConfiguration.CustomParsers"/>
     <value type="bool" key="ProjectExplorer.BuildConfiguration.ParseStandardOutput">false</value>
     <valuelist type="QVariantList" key="ProjectExplorer.BuildConfiguration.UserEnvironmentChanges">
-     <value type="QString">RUSTFLAGS=-C link-arg=-fuse-ld=mold</value>
      <value type="QString">RUSTC_WRAPPER=sccache</value>
      <value type="QString">CARGO_INCREMENTAL=0</value>
+     <value type="QString">RUSTFLAGS=-C link-arg=-fuse-ld=mold</value>
     </valuelist>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">cargo</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">WorkspaceProject.BuildConfiguration</value>
@@ -303,7 +304,7 @@
     <value type="qlonglong" key="ProjectExplorer.Target.DeployConfigurationCount">1</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.0">
      <valuelist type="QVariantList" key="CustomOutputParsers"/>
-     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+     <value type="int" key="PE.EnvironmentAspect.Base">-1</value>
      <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
      <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">cargo run</value>
@@ -321,11 +322,9 @@
     <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.1">
      <valuelist type="QVariantList" key="CustomOutputParsers"/>
      <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes">
-      <value type="QString">RUST_BACKTRACE=1</value>
-     </valuelist>
+     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
      <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-     <value type="QString" key="ProjectExplorer.CustomExecutableRunConfiguration.Executable">/home/andrey/projects/local/ocean/target/debug/ocean</value>
+     <value type="QString" key="ProjectExplorer.CustomExecutableRunConfiguration.Executable">%{ActiveProject:ProjectDirectory}/target/debug/ocean</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Rust</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.CustomExecutableRunConfiguration</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey"></value>
@@ -336,7 +335,7 @@
      <value type="int" key="RunConfiguration.UsePythonDebugger">1</value>
      <value type="int" key="RunConfiguration.UseQmlDebugger">1</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">false</value>
-     <value type="QString" key="RunConfiguration.WorkingDirectory">/home/andrey/projects/local/ocean</value>
+     <value type="QString" key="RunConfiguration.WorkingDirectory">%{ActiveProject:ProjectDirectory}</value>
      <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
     </valuemap>
     <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">2</value>
@@ -357,7 +356,7 @@
    <value type="qlonglong" key="ProjectExplorer.Target.DeployConfigurationCount">1</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.0">
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <value type="int" key="PE.EnvironmentAspect.Base">-1</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">cargo run</value>
@@ -375,11 +374,9 @@
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.1">
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes">
-     <value type="QString">RUST_BACKTRACE=1</value>
-    </valuelist>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="ProjectExplorer.CustomExecutableRunConfiguration.Executable">/home/andrey/projects/local/ocean/target/debug/ocean</value>
+    <value type="QString" key="ProjectExplorer.CustomExecutableRunConfiguration.Executable">%{ActiveProject:ProjectDirectory}/target/debug/ocean</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Rust</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.CustomExecutableRunConfiguration</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey"></value>
@@ -390,7 +387,7 @@
     <value type="int" key="RunConfiguration.UsePythonDebugger">1</value>
     <value type="int" key="RunConfiguration.UseQmlDebugger">1</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">false</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory">/home/andrey/projects/local/ocean</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory">%{ActiveProject:ProjectDirectory}</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">2</value>
@@ -453,7 +450,7 @@
     <value type="qlonglong" key="ProjectExplorer.Target.DeployConfigurationCount">1</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.0">
      <valuelist type="QVariantList" key="CustomOutputParsers"/>
-     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+     <value type="int" key="PE.EnvironmentAspect.Base">-1</value>
      <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
      <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">cargo run</value>
@@ -521,7 +518,7 @@
     <value type="qlonglong" key="ProjectExplorer.Target.DeployConfigurationCount">1</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.0">
      <valuelist type="QVariantList" key="CustomOutputParsers"/>
-     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+     <value type="int" key="PE.EnvironmentAspect.Base">-1</value>
      <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
      <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">cargo run</value>
@@ -554,7 +551,7 @@
    <value type="qlonglong" key="ProjectExplorer.Target.DeployConfigurationCount">1</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.0">
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <value type="int" key="PE.EnvironmentAspect.Base">-1</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">cargo run</value>

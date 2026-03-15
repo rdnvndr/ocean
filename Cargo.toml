@@ -8,3 +8,21 @@ ggez = "0.9.3"
 rand = "0.10.0"
 rust-i18n = "3.1.5"
 sys-locale = "0.3.2"
+
+[profile.dev]
+opt-level = 0
+codegen-units = 16
+debug = true
+
+[profile.dev.package."*"]
+opt-level = 3
+debug = false
+strip = "symbols"
+codegen-units = 16
+
+[profile.dist]
+inherits = "release"
+lto = "thin"
+
+[package.metadata.dist]
+include = ["resources/", "locales/"]
