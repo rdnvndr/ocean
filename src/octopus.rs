@@ -88,12 +88,12 @@ impl Octopus {
         self.speed = value;
     }
 
-    /// Возвращает флаг отображения щупальцы пойманого дайвера
+    /// Возвращает флаг отображения щупальцы пойманного дайвера
     pub fn is_diver(&self) -> bool {
         self.is_diver
     }
 
-    /// Устанавливает флаг отображения щупальцы пойманого дайвера
+    /// Устанавливает флаг отображения щупальцы пойманного дайвера
     pub fn set_diver(&mut self, value: bool) {
         self.is_diver = value;
     }
@@ -175,7 +175,7 @@ impl Draw for Octopus {
             }
         }
 
-        // Отображает щупальцу пойманого водолаза
+        // Отображает щупальцу пойманного водолаза
         if self.is_diver {
             let tentacles_section = &self.tentacles[3][0];
             let x = tentacles_section.x;

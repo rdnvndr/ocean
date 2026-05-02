@@ -190,7 +190,7 @@ impl Diver {
     }
 }
 
-/// Отрисовывает водолаха
+/// Отрисовывает водолаза
 impl Draw for Diver {
     /// Проверяет необходимость отрисовки
     fn is_draw(&mut self) -> bool {
@@ -204,7 +204,7 @@ impl Draw for Diver {
             return true
         }
 
-        // Отображение пойманого водолаза
+        // Отображение пойманного водолаза
         if self.pos == 6 && self.hand.is_draw() {
             return true
         }
@@ -245,7 +245,7 @@ impl Draw for Diver {
             self.filling.draw(ctx, canvas)?;
         }
 
-        // Отображение пойманого водолаза
+        // Отображение пойманного водолаза
         if self.pos == 6 {
             self.hand.draw(ctx, canvas)?;
         }
