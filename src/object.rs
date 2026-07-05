@@ -1,5 +1,5 @@
-use ggez::{ Context, GameResult };
 use ggez::graphics::Canvas;
+use ggez::{Context, GameResult};
 
 /// Отрисовывает объекты
 pub trait Draw {

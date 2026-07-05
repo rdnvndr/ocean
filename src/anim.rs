@@ -1,8 +1,8 @@
-use std::time::{Instant, Duration};
-use ggez::audio::{ SoundSource, Source };
-use ggez::{Context, GameResult};
+use ggez::audio::{SoundSource, Source};
 use ggez::graphics::{Canvas, DrawParam, Image};
 use ggez::mint::Point2;
+use ggez::{Context, GameResult};
+use std::time::{Duration, Instant};
 
 use crate::object::Draw;
 
@@ -34,7 +34,14 @@ impl<const COUNT: usize> Anim<COUNT> {
         let count = if repeat >= 0 { repeat - 1 } else { -1 };
         let draw_curr = 0;
         let sound_playing = false;
-        Ok(Self { ticks, current, objs, count, draw_curr, sound_playing})
+        Ok(Self {
+            ticks,
+            current,
+            objs,
+            count,
+            draw_curr,
+            sound_playing,
+        })
     }
 
     /// Начинает анимацию
@@ -47,7 +54,11 @@ impl<const COUNT: usize> Anim<COUNT> {
 
     /// Проверяет запущена ли анимация
     pub fn playing(&self) -> bool {
-        if let Some(_) = &self.ticks { true } else { false }
+        if let Some(_) = &self.ticks {
+            true
+        } else {
+            false
+        }
     }
 
     /// Останавливает анимацию
@@ -62,8 +73,8 @@ impl<const COUNT: usize> Draw for Anim<COUNT> {
     fn is_draw(&mut self) -> bool {
         if let Some(ticks) = &self.ticks {
             let obj = &self.objs[self.draw_curr as usize];
-            if Instant::now() <= *ticks + Duration::from_millis(obj.pause)  {
-                return false
+            if Instant::now() <= *ticks + Duration::from_millis(obj.pause) {
+                return false;
             }
             let mut value = self.draw_curr + 1;
             self.sound_playing = false;
@@ -101,7 +112,7 @@ impl<const COUNT: usize> Draw for Anim<COUNT> {
         }
 
         if let Some(image) = &mut obj.image {
-            let draw_param = DrawParam::default().dest(Point2{ x: obj.x, y: obj.y });
+            let draw_param = DrawParam::default().dest(Point2 { x: obj.x, y: obj.y });
             canvas.draw(image, draw_param);
         }
         Ok(())

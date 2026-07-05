@@ -1,7 +1,7 @@
 use ggez::audio::{SoundSource, Source};
-use ggez::{Context, GameResult};
 use ggez::graphics::{Canvas, DrawParam, Image};
 use ggez::mint::Point2;
+use ggez::{Context, GameResult};
 
 use crate::object::Draw;
 
@@ -32,7 +32,14 @@ impl Game {
         let sound_b = Source::new(ctx, "/sound/gameb.wav")?;
         let mode = GameMode::A;
         let playing = false;
-        Ok(Self { game_a, game_b, sound_a, sound_b, mode, playing })
+        Ok(Self {
+            game_a,
+            game_b,
+            sound_a,
+            sound_b,
+            mode,
+            playing,
+        })
     }
 
     /// Возвращает режим игры
@@ -64,7 +71,7 @@ impl Draw for Game {
                     self.sound_a.play(ctx)?;
                     self.playing = false;
                 }
-                let draw_param = DrawParam::default().dest(Point2{ x: 26.0, y: 781.0 });
+                let draw_param = DrawParam::default().dest(Point2 { x: 26.0, y: 781.0 });
                 canvas.draw(&self.game_a, draw_param);
             }
             GameMode::B => {
@@ -72,7 +79,7 @@ impl Draw for Game {
                     self.sound_b.play(ctx)?;
                     self.playing = false;
                 }
-                let draw_param = DrawParam::default().dest(Point2{ x: 26.0, y: 843.0 });
+                let draw_param = DrawParam::default().dest(Point2 { x: 26.0, y: 843.0 });
                 canvas.draw(&self.game_b, draw_param);
             }
         };

@@ -1,6 +1,6 @@
 use ggez::audio::{SoundSource, Source};
-use ggez::{Context, GameResult};
 use ggez::graphics::{Canvas, DrawParam, Image};
+use ggez::{Context, GameResult};
 
 use crate::object::Draw;
 

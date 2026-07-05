@@ -18,12 +18,28 @@ impl BoatDiver {
     pub fn new(ctx: &Context) -> GameResult<Self> {
         let boatdiver = Image::from_path(ctx, "/image/diver/boat_diver.png")?;
         let anim_data = [
-            AnimData{ image: Some(boatdiver.clone()), x: 400.0, y: 26.0, pause: 250, sound: None },
-            AnimData{ image: Some(boatdiver.clone()), x: 288.0, y: 26.0, pause: 0, sound: None },
+            AnimData {
+                image: Some(boatdiver.clone()),
+                x: 400.0,
+                y: 26.0,
+                pause: 250,
+                sound: None,
+            },
+            AnimData {
+                image: Some(boatdiver.clone()),
+                x: 288.0,
+                y: 26.0,
+                pause: 0,
+                sound: None,
+            },
         ];
         let onediver = Anim::new(anim_data, 1)?;
         let count: i8 = 2;
-        Ok(Self { boatdiver, onediver, count })
+        Ok(Self {
+            boatdiver,
+            onediver,
+            count,
+        })
     }
 
     /// Устанавливает количество ожидающих водолазов в лодке
@@ -56,9 +72,9 @@ impl Draw for BoatDiver {
         }
 
         if self.count == 2 {
-            let draw_param = DrawParam::default().dest(Point2{ x: 400.0, y: 26.0 });
+            let draw_param = DrawParam::default().dest(Point2 { x: 400.0, y: 26.0 });
             canvas.draw(&self.boatdiver, draw_param);
-            let draw_param = DrawParam::default().dest(Point2{ x: 288.0, y: 26.0 });
+            let draw_param = DrawParam::default().dest(Point2 { x: 288.0, y: 26.0 });
             canvas.draw(&self.boatdiver, draw_param);
         }
         Ok(())

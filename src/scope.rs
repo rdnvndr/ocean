@@ -27,7 +27,7 @@ impl Scope {
             Image::from_path(ctx, "/image/clock/digit9.png")?,
         ];
         let value: u16 = 0;
-        Ok(Self{ digit, value })
+        Ok(Self { digit, value })
     }
 
     /// Возвращает количество набранных очков
@@ -53,20 +53,20 @@ impl Draw for Scope {
         // Сотни
         let hundreds = self.value / 100;
         if hundreds > 0 {
-            let draw_param = DrawParam::default().dest(Point2{ x: 854.0, y: 37.0 });
+            let draw_param = DrawParam::default().dest(Point2 { x: 854.0, y: 37.0 });
             canvas.draw(&self.digit[hundreds as usize], draw_param);
         }
 
         // Десятки
         let dozens = (self.value - hundreds * 100) / 10;
         if dozens > 0 || self.value >= 100 {
-            let draw_param = DrawParam::default().dest(Point2{ x: 924.0, y: 37.0 });
+            let draw_param = DrawParam::default().dest(Point2 { x: 924.0, y: 37.0 });
             canvas.draw(&self.digit[dozens as usize], draw_param);
         }
 
         // Единицы
         let units = self.value - hundreds * 100 - dozens * 10;
-        let draw_param = DrawParam::default().dest(Point2{ x: 994.0, y: 37.0 });
+        let draw_param = DrawParam::default().dest(Point2 { x: 994.0, y: 37.0 });
         canvas.draw(&self.digit[units as usize], draw_param);
         Ok(())
     }

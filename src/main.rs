@@ -1,15 +1,15 @@
+use ggez::conf::FullscreenType;
 use ggez::event::{self, EventHandler};
 use ggez::graphics::{Canvas, Color, Rect};
 use ggez::input::keyboard::{KeyCode, KeyInput};
 use ggez::{Context, GameResult};
-use ggez::conf::FullscreenType;
 use rust_i18n::t;
 use std::time::{Duration, Instant};
 use sys_locale::get_locale;
 
 mod anim;
-mod boatdiver;
 mod background;
+mod boatdiver;
 mod diver;
 mod game;
 mod object;
@@ -58,7 +58,6 @@ impl GameState {
 
 /// Обработка игровых событий
 impl EventHandler for GameState {
-
     /// Обновляет логику (вызывается каждый кадр)
     fn update(&mut self, _ctx: &mut Context) -> GameResult {
         // Контролирует частоту (FPS) кадров
@@ -70,15 +69,15 @@ impl EventHandler for GameState {
         }
         self.last_frame = Instant::now();
 
-        // Устаналивает количество очков на табло
+        // Устанавливает количество очков на табло
         if self.scope.value() != self.diver.score() {
             self.scope.set_value(self.diver.score());
         }
 
-        // Проверка пересечения щупальцы и водолаза
+        // Проверка пересечения щупальца и водолаза
         if let None = self.respawn {
             let pos = self.diver.pos();
-            if  pos > 0 && self.octopus.is_tentacles_max(pos - 1) {
+            if pos > 0 && self.octopus.is_tentacles_max(pos - 1) {
                 self.octopus.set_diver(true);
                 self.diver.set_pos(6);
                 self.respawn = Some(Instant::now());
@@ -87,11 +86,11 @@ impl EventHandler for GameState {
 
         // Возобновление игры
         if let Some(respawn) = &self.respawn {
-            if Instant::now() > *respawn + Duration::from_millis(1500)  {
+            if Instant::now() > *respawn + Duration::from_millis(1500) {
                 let mut count = self.boatdiver.count() - 1;
                 if count < 0 {
-                   count = 2;
-                   self.diver.set_score(0);
+                    count = 2;
+                    self.diver.set_score(0);
                 }
                 self.diver.set_bag_value(0);
                 self.octopus.set_diver(false);
@@ -134,19 +133,19 @@ impl EventHandler for GameState {
         match input.keycode {
             Some(KeyCode::Escape) | Some(KeyCode::Q) => {
                 ctx.request_quit();
-            },
+            }
             Some(KeyCode::A) => {
                 if *self.game.mode() != game::GameMode::A {
                     self.octopus.set_speed(self.octopus.speed() * 2);
                     self.game.set_mode(game::GameMode::A);
                 }
-            },
+            }
             Some(KeyCode::B) => {
                 if *self.game.mode() != game::GameMode::B {
                     self.octopus.set_speed(self.octopus.speed() / 2);
                     self.game.set_mode(game::GameMode::B);
                 }
-            },
+            }
             Some(KeyCode::G) => {
                 if *self.game.mode() != game::GameMode::A {
                     self.octopus.set_speed(self.octopus.speed() * 2);
@@ -155,20 +154,16 @@ impl EventHandler for GameState {
                     self.octopus.set_speed(self.octopus.speed() / 2);
                     self.game.set_mode(game::GameMode::B);
                 }
-            },
+            }
             Some(KeyCode::Down) | Some(KeyCode::Right) => {
                 self.diver.next();
             }
             Some(KeyCode::Up) | Some(KeyCode::Left) => {
                 self.diver.prev();
             }
-            Some(KeyCode::F) => {
-                ctx.gfx.set_fullscreen(FullscreenType::Desktop)?
-            },
-            Some(KeyCode::W) => {
-                ctx.gfx.set_fullscreen(FullscreenType::Windowed)?
-            },
-            _ => {},
+            Some(KeyCode::F) => ctx.gfx.set_fullscreen(FullscreenType::Desktop)?,
+            Some(KeyCode::W) => ctx.gfx.set_fullscreen(FullscreenType::Windowed)?,
+            _ => {}
         }
         Ok(())
     }
