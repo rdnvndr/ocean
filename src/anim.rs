@@ -54,11 +54,7 @@ impl<const COUNT: usize> Anim<COUNT> {
 
     /// Проверяет запущена ли анимация
     pub fn playing(&self) -> bool {
-        if let Some(_) = &self.ticks {
-            true
-        } else {
-            false
-        }
+        self.ticks.is_some()
     }
 
     /// Останавливает анимацию
@@ -85,7 +81,7 @@ impl<const COUNT: usize> Draw for Anim<COUNT> {
                     value = 0;
                 }
                 if self.current < self.count {
-                    self.current = self.current + 1;
+                    self.current += 1;
                     value = 0;
                 }
             }
@@ -104,11 +100,9 @@ impl<const COUNT: usize> Draw for Anim<COUNT> {
     fn draw(&mut self, ctx: &mut Context, canvas: &mut Canvas) -> GameResult {
         let obj = &mut self.objs[self.draw_curr as usize];
 
-        if let Some(sound) = &mut obj.sound {
-            if sound.stopped() && !self.sound_playing {
-                sound.play(ctx)?;
-                self.sound_playing = true
-            }
+        if let Some(sound) = &mut obj.sound && sound.stopped() && !self.sound_playing {
+            sound.play(ctx)?;
+            self.sound_playing = true
         }
 
         if let Some(image) = &mut obj.image {

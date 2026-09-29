@@ -206,6 +206,7 @@ impl Diver {
     }
 
     /// Возвращает значение мешка водолаза
+    #[allow(dead_code)]
     pub fn bag_value(&self) -> u16 {
         self.bag_value
     }

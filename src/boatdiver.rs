@@ -44,7 +44,7 @@ impl BoatDiver {
 
     /// Устанавливает количество ожидающих водолазов в лодке
     pub fn set_count(&mut self, count: i8) {
-        if count >= 0 && count <= 2 {
+        if (0..=2).contains(&count) {
             if count == 1 {
                 self.onediver.play();
             }

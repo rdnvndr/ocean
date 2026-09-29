@@ -2,7 +2,6 @@ use ggez::audio::{SoundSource, Source};
 use ggez::graphics::{Canvas, DrawParam, Image};
 use ggez::mint::Point2;
 use ggez::{Context, GameResult};
-use rand;
 
 use crate::object::Draw;
 use std::time::{Duration, Instant};
@@ -191,6 +190,7 @@ impl Octopus {
     }
 
     /// Возвращает флаг отображения щупальцы пойманного дайвера
+    #[allow(dead_code)]
     pub fn is_diver(&self) -> bool {
         self.is_diver
     }

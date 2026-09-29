@@ -75,7 +75,7 @@ impl EventHandler for GameState {
         }
 
         // Проверка пересечения щупальца и водолаза
-        if let None = self.respawn {
+        if self.respawn.is_none() {
             let pos = self.diver.pos();
             if pos > 0 && self.octopus.is_tentacles_max(pos - 1) {
                 self.octopus.set_diver(true);
@@ -85,19 +85,19 @@ impl EventHandler for GameState {
         }
 
         // Возобновление игры
-        if let Some(respawn) = &self.respawn {
-            if Instant::now() > *respawn + Duration::from_millis(1500) {
-                let mut count = self.boatdiver.count() - 1;
-                if count < 0 {
-                    count = 2;
-                    self.diver.set_score(0);
-                }
-                self.diver.set_bag_value(0);
-                self.octopus.set_diver(false);
-                self.diver.set_pos(0);
-                self.boatdiver.set_count(count);
-                self.respawn = None;
+        if let Some(respawn) = &self.respawn
+            && Instant::now() > *respawn + Duration::from_millis(1500)
+        {
+            let mut count = self.boatdiver.count() - 1;
+            if count < 0 {
+                count = 2;
+                self.diver.set_score(0);
             }
+            self.diver.set_bag_value(0);
+            self.octopus.set_diver(false);
+            self.diver.set_pos(0);
+            self.boatdiver.set_count(count);
+            self.respawn = None;
         }
 
         Ok(())
